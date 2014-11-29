@@ -1,0 +1,12 @@
+{
+  "generator-backbone": {
+    "appPath": "app",
+    "appName": "SunriseHues",
+    "coffee": false,
+    "testFramework": "jasmine",
+    "templateFramework": "mustache",
+    "compassBootstrap": true,
+    "includeRequireJS": false
+  },
+  "generator-jasmine": {}
+}
