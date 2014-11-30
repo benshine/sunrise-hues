@@ -7,8 +7,16 @@ body {
     width: 300px;
 }
 
+.colorstop {
+  height: 40px;
+}
+
 .colorstop .indicator {
-    width: 1em;
+    width: 10em;
     height: 1em;
     display: inline-block;
+}
+
+.items {
+  padding-left: 0;
 }

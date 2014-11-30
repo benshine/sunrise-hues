@@ -23,18 +23,18 @@ Sunrise.Views = Sunrise.Views || {};
         },
 
         initialize: function () {
-            //this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.collection, 'add', this.addColorstop);
         },
 
         render: function () {
             this.$el.html(this.template(this.collection.toJSON()));
+            this.renderPreview();
         },
 
         addColorstop: function (item) {
-            // this is for when it's already in the collection; we just need to render it
             var view = new Sunrise.Views.Colorstop({ model: item });
             this.$('ul').append(view.render().el);
+            this.renderPreview();
         },
 
         createColorstop: function (event) {
@@ -54,13 +54,23 @@ Sunrise.Views = Sunrise.Views || {};
         },
 
       removeColorstop: function (event) {
-        console.log("got remove for target", event.target);
         var $container = $(event.target).closest('.colorstop');
         var id = $container.attr('data-id');
         var toRemove = this.collection.get(id);
-        console.log("found thing to remove? ", toRemove);
         this.collection.remove(toRemove);
         $container.remove();
+        this.renderPreview();
+      },
+
+      renderPreview: function () {
+        var canvas = document.getElementById('sunrise');
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var stripeHeight = 100;
+        this.collection.forEach(function (el, index, list) {
+          context.fillStyle = el.get('color');
+          context.fillRect(0, index * stripeHeight, 800, stripeHeight);
+        });
       }
 
     });
