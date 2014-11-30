@@ -6,3 +6,9 @@ body {
     margin: 50px auto 0 auto;
     width: 300px;
 }
+
+.colorstop .indicator {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
