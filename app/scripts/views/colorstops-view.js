@@ -43,12 +43,13 @@ Sunrise.Views = Sunrise.Views || {};
             var name = this.$('#name').val().trim();
             var time = this.$('#time').val().trim();
 
-            this.collection.create( new Sunrise.Models.Colorstop({
-                name: name,
-                color: color,
-                time: time
-            }));
-
+            var newModel = new Sunrise.Models.Colorstop({
+              name: name,
+              color: color,
+              time: time
+            });
+            newModel.set('id', newModel.cid); // Standin for a real id.
+            this.collection.create(newModel);
         }
 
     });
