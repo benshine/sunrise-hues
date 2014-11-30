@@ -2,32 +2,25 @@
 
 
 window.Sunrise = {
-    Models: {},
-    Collections: {},
-    Views: {},
-    Routers: {},
-    init: function () {
-        'use strict';
-        console.log('Hello from Backbone!');
-        var thing = new this.Models.Colorstop();
-        window.thing = thing;
+  Models: {},
+  Collections: {},
+  Views: {},
+  Routers: {},
+  init: function () {
+    'use strict';
+    console.log('Hello from Backbone!');
 
-        var collection = new this.Collections.Colorstops();
-        window.collection = collection;
+    var collection = new this.Collections.Colorstops();
+    window.collection = collection;
 
-        var view = new this.Views.Colorstop( { model: thing, el: $('.colorstop-1') });
-        view.render();
-
-        var collectionView = new this.Views.Colorstops(
-            { collection : collection }
-        );
-        collectionView.render();
-
-        collection.add(thing);
-    }
+    var collectionView = new this.Views.Colorstops(
+      {collection: collection}
+    );
+    collectionView.render();
+  }
 };
 
 $(document).ready(function () {
-    'use strict';
-    Sunrise.init();
+  'use strict';
+  Sunrise.init();
 });

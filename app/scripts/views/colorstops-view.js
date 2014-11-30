@@ -18,7 +18,7 @@ Sunrise.Views = Sunrise.Views || {};
         className: '',
 
         events: {
-            'submit': 'createColorstop'
+            'click #create': 'createColorstop'
         },
 
         initialize: function () {
@@ -27,7 +27,6 @@ Sunrise.Views = Sunrise.Views || {};
         },
 
         render: function () {
-            console.log("rendering collection view");
             this.$el.html(this.template(this.collection.toJSON()));
         },
 
