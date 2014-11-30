@@ -66,11 +66,20 @@ Sunrise.Views = Sunrise.Views || {};
         var canvas = document.getElementById('sunrise');
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
-        var stripeHeight = 100;
+        var totalHeight = 300;
+        var gradient = context.createLinearGradient(0, 0, 0, 300);
+        if (this.collection.length === 0) {
+          console.log("noting to preview :(");
+          return;
+        }
+        var fraction = 1 / this.collection.length;
+
         this.collection.forEach(function (el, index, list) {
-          context.fillStyle = el.get('color');
-          context.fillRect(0, index * stripeHeight, 800, stripeHeight);
+          gradient.addColorStop(index * fraction, el.get('color'));
         });
+
+        context.fillStyle = gradient;
+        context.fillRect(0, 0, 600, 300);
       }
 
     });
