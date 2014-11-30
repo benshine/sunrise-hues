@@ -18,7 +18,8 @@ Sunrise.Views = Sunrise.Views || {};
         className: '',
 
         events: {
-            'click #create': 'createColorstop'
+            'click #create': 'createColorstop',
+            'click .remove': 'removeColorstop'
         },
 
         initialize: function () {
@@ -50,7 +51,17 @@ Sunrise.Views = Sunrise.Views || {};
             });
             newModel.set('id', newModel.cid); // Standin for a real id.
             this.collection.create(newModel);
-        }
+        },
+
+      removeColorstop: function (event) {
+        console.log("got remove for target", event.target);
+        var $container = $(event.target).closest('.colorstop');
+        var id = $container.attr('data-id');
+        var toRemove = this.collection.get(id);
+        console.log("found thing to remove? ", toRemove);
+        this.collection.remove(toRemove);
+        $container.remove();
+      }
 
     });
 
