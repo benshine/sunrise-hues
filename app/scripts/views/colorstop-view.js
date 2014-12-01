@@ -15,7 +15,9 @@ Sunrise.Views = Sunrise.Views || {};
 
         className: '',
 
-        events: {},
+        events: {
+          'click .lights': 'onLightsClick'
+        },
 
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);
@@ -24,6 +26,11 @@ Sunrise.Views = Sunrise.Views || {};
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
+        },
+
+        onLightsClick: function () {
+          console.log("light click", this.model);
+          HueService.allOn(this.model.get('color'));
         }
 
     });

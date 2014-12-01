@@ -7,7 +7,8 @@
     "backbone": "~1.1.0",
     "modernizr": "~2.7.1",
     "bootstrap": "~3.3.1",
-    "backbone.localStorage": "~1.1.14"
+    "backbone.localStorage": "~1.1.14",
+    "tinycolor": "~1.1.0"
   },
   "devDependencies": {}
 }

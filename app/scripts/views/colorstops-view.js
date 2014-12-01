@@ -67,7 +67,7 @@ Sunrise.Views = Sunrise.Views || {};
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
         var totalHeight = 300;
-        var gradient = context.createLinearGradient(0, 0, 0, 300);
+        var gradient = context.createLinearGradient(0, 0, 0, totalHeight);
         if (this.collection.length === 0) {
           console.log("noting to preview :(");
           return;
@@ -75,6 +75,9 @@ Sunrise.Views = Sunrise.Views || {};
         var fraction = 1 / this.collection.length;
 
         this.collection.forEach(function (el, index, list) {
+          var color = el.get('color');
+          var tinyc = tinycolor(color);
+          console.log("hsv: ", tinyc.toHsvString());
           gradient.addColorStop(index * fraction, el.get('color'));
         });
 
