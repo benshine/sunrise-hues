@@ -33,12 +33,12 @@ var HueService = {
     return this.bridgeAddress + '/api/' + this.username + '/' + path;
   },
   colorToHueHsv: function (color) {
-    var hsv = tinycolor(color);
+    var hsv = tinycolor(color).toHsv();
 
     return {
-      "hue" : 65530 * hsv.h / 360,
-      "sat": 255,
-      "bri": 255
+      "hue" : Math.floor(65535 * hsv.h / 360),
+      "sat": Math.floor(hsv.s * 255),
+      "bri": Math.floor(hsv.v * 255)
     }
   }
 };
