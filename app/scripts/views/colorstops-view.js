@@ -14,7 +14,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
   events: {
     'click #create': 'createColorstop',
-    'click .remove': 'removeColorstop'
+    'click .remove': 'removeColorstop',
+    'click .animate-btn': 'animatePreview'
   },
 
   initialize: function () {
@@ -71,13 +72,36 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
     this.collection.forEach(function (el, index, list) {
       var color = el.get('color');
-      var tinyc = tinycolor(color);
-      console.log("hsv: ", tinyc.toHsvString());
       gradient.addColorStop(index * fraction, el.get('color'));
     });
 
     context.fillStyle = gradient;
     context.fillRect(0, 0, 600, 300);
+  },
+
+  // TODO: make a new backbone view for this. Share the same collection.
+  animatePreview: function () {
+    var duration = 4000; // milliseconds
+    if (this.collection.length === 0) {
+      console.log("nothing to animate");
+      return;
+    }
+    var stepDuration = duration / this.collection.length;
+    var $elemToAnimate = $('.modal-preview');
+    $elemToAnimate.css('background-color', this.collection.at(0).get('color'));
+    $elemToAnimate.show();
+
+    this.collection.forEach(function (el, index) {
+      var color = el.get('color');
+      window.setTimeout(function() {
+        $elemToAnimate.animate( { backgroundColor: color }, stepDuration);
+      }, index * stepDuration);
+    });
+
+    window.setTimeout(function () {
+      $elemToAnimate.hide();
+    }, duration + 3000)
+
   }
 });
 

@@ -20,3 +20,15 @@ body {
 .items {
   padding-left: 0;
 }
+
+.animate-btn {
+  display: block;
+}
+
+.modal-preview {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #00A000;
+  top: 0;
+}
