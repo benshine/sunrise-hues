@@ -8,7 +8,9 @@
     "modernizr": "~2.7.1",
     "bootstrap": "~3.3.1",
     "backbone.localStorage": "~1.1.14",
-    "tinycolor": "~1.1.0"
+    "tinycolor": "~1.1.0",
+    "es5-shim": "~4.0.5",
+    "es6-shim": "~0.21.1"
   },
   "devDependencies": {}
 }
