@@ -1,44 +1,42 @@
 <!doctype html>
 <html class="no-js">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sunrise</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sunrise</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
 
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
 </head>
 <body>
+
 <div class="container-fluid">
   <h1>Sunrise</h1>
 
-  <h2>Add some color stops.</h2>
+  <h2>Add some colors.</h2>
   <section id="sunrise-app">
-      <ul></ul>
-
+    <ul></ul>
   </section>
 
   <div class="canvas-container">
-    <h2>Sunrise Preview:</h2>
-    <canvas id="sunrise" width="600px" height="300px">
-
+    <canvas id="sunrise" width="600px" height="200px">
     </canvas>
   </div>
 
-  <div class="modal-preview" style="display:none">
-    <h1>Live Sunrise Animated Preview</h1>
-  </div>
+  <section id="animated-preview">
+  </section>
+
 </div>
 
 <!-- build:js scripts/vendor.js -->
@@ -60,6 +58,7 @@
 <script src="scripts/views/colorstops-view.js"></script>
 <script src="scripts/views/colorstop-view.js"></script>
 <script src="scripts/services/hue-service.js"></script>
+<script src="scripts/views/sunrise-animated-view.js"></script>
 <!-- endbuild -->
 </body>
 </html>

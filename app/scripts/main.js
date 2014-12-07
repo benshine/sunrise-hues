@@ -14,9 +14,17 @@ window.Sunrise = {
     window.collection = collection;
 
     var collectionView = new this.Views.Colorstops(
-      {collection: collection}
+      { collection: collection }
     );
     collectionView.render();
+
+    var animatedView = new this.Views.SunriseAnimatedView(
+      {
+        collection: collection
+      }
+    );
+
+    animatedView.render();
   }
 };
 

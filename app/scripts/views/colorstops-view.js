@@ -14,8 +14,7 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
   events: {
     'click #create': 'createColorstop',
-    'click .remove': 'removeColorstop',
-    'click .animate-btn': 'animatePreview'
+    'click .remove': 'removeColorstop'
   },
 
   initialize: function () {
