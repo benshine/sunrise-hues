@@ -3,36 +3,29 @@
 Sunrise.Views = Sunrise.Views || {};
 
 (function () {
-    'use strict';
+  'use strict';
 
-    Sunrise.Views.Colorstop = Backbone.View.extend({
+  Sunrise.Views.Colorstop = Backbone.View.extend({
+    template: JST['app/scripts/templates/colorstop.ejs'],
+    tagName: 'div',
+    id: '',
+    className: '',
 
-        template: JST['app/scripts/templates/colorstop.ejs'],
+    events: {
+      'click .lights': 'onLightsClick'
+    },
 
-        tagName: 'div',
+    initialize: function () {
+      this.listenTo(this.model, 'change', this.render);
+    },
 
-        id: '',
+    render: function () {
+      this.$el.html(this.template(this.model.toJSON()));
+      return this;
+    },
 
-        className: '',
-
-        events: {
-          'click .lights': 'onLightsClick'
-        },
-
-        initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
-        },
-
-        render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
-            return this;
-        },
-
-        onLightsClick: function () {
-          console.log("light click", this.model);
-          HueService.allOn(this.model.get('color'));
-        }
-
-    });
-
+    onLightsClick: function () {
+      HueService.allOn(this.model.get('color'));
+    }
+  });
 })();
