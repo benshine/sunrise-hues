@@ -11,7 +11,9 @@ Sunrise.Views = Sunrise.Views || {};
     el: '#animated-preview',
     className: '',
     events: {
-      'click .animate-btn': 'animatePreview'
+      'click .animate-btn': 'animatePreview',
+      'click .replay': 'animatePreview',
+      'click .dismiss': 'dismissPreview'
     },
 
     initialize: function () {
@@ -19,17 +21,21 @@ Sunrise.Views = Sunrise.Views || {};
 
     render: function () {
       this.$el.html(this.template());
-      this.$preview = $('.modal-preview');
+      this.$preview = this.$('.modal-preview');
+      this.$backdrop = this.$('.modal-backdrop');
+      this.$controls = this.$('.controls');
+      console.log("got controls: ", this.$controls);
     },
 
     animatePreview: function () {
-      this.$('.modal-preview').show();
+
       var duration = Sunrise.Views.SunriseAnimatedView.PREVIEW_DURATION; // milliseconds
       if (this.collection.length === 0) {
         console.log("nothing to animate");
         return;
       }
 
+      this.$backdrop.show();
       var stepDuration = duration / this.collection.length;
       var $preview = this.$preview;
       $preview.css('background-color', this.collection.at(0).get('color'));
@@ -43,9 +49,12 @@ Sunrise.Views = Sunrise.Views || {};
       });
 
       window.setTimeout(function () {
-        $preview.hide();
-      }, duration + 3000)
-      // TODO: add replay & dismiss buttons
+        this.$controls.show();
+      }.bind(this), duration + 500);
+    },
+
+    dismissPreview: function () {
+      this.$backdrop.hide();
     }
 
   }, {
