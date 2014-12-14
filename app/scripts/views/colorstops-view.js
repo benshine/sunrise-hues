@@ -74,6 +74,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
       console.log("noting to preview :(");
       return;
     }
+
+    // TODO: obey stated timestops
     var fraction = 1 / this.collection.length;
 
     this.collection.forEach(function (el, index, list) {
@@ -86,11 +88,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
   },
 
   resetToDefaults: function () {
-    console.log("collection before reset: ", this.collection.toJSON());
     this.collection.resetToDefaults();
-    console.log("collection now: ", this.collection.toJSON());
   }
-
 });
 
 
