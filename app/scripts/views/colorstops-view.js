@@ -14,22 +14,31 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
   events: {
     'click #create': 'createColorstop',
-    'click .remove': 'removeColorstop'
+    'click .remove': 'removeColorstop',
+    'click #reset-to-defaults': 'resetToDefaults'
   },
 
   initialize: function () {
-    this.listenTo(this.collection, 'add', this.addColorstop);
+    this.listenTo(this.collection, 'add', this.addOne);
+    this.listenTo(this.collection, 'reset', this.addAll);
   },
 
   render: function () {
     this.$el.html(this.template(this.collection.toJSON()));
     this.renderPreview();
+    this.$items = this.$('.items');
   },
 
-  addColorstop: function (item) {
+  addOne: function (item) {
+    console.log('adding item with color', item.get('color'));
     var view = new Sunrise.Views.Colorstop({ model: item });
     this.$('ul').append(view.render().el);
     this.renderPreview();
+  },
+
+  addAll: function () {
+    this.$items.empty();
+    this.collection.each(this.addOne, this);
   },
 
   createColorstop: function (event) {
@@ -74,6 +83,12 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
     context.fillStyle = gradient;
     context.fillRect(0, 0, 600, 300);
+  },
+
+  resetToDefaults: function () {
+    console.log("collection before reset: ", this.collection.toJSON());
+    this.collection.resetToDefaults();
+    console.log("collection now: ", this.collection.toJSON());
   }
 
 });
