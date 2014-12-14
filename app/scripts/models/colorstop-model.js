@@ -14,8 +14,7 @@ Sunrise.Models = Sunrise.Models || {};
 
         defaults: {
             color: '#F88',
-            time: 0,
-            name: 'nameless'
+            time: 0
         },
 
         validate: function(attrs, options) {

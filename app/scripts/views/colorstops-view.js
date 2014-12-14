@@ -36,11 +36,9 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
     event.preventDefault();
 
     var color = this.$('#color').val().trim();
-    var name = this.$('#name').val().trim();
     var time = this.$('#time').val().trim();
 
     var newModel = new Sunrise.Models.Colorstop({
-      name: name,
       color: color,
       time: time
     });
