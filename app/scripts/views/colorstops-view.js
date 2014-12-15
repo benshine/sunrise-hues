@@ -6,7 +6,7 @@ Sunrise.Views = Sunrise.Views || {};
 'use strict';
 
 Sunrise.Views.Colorstops = Backbone.View.extend({
-  el: '#sunrise-app',
+  el: '.colorstop-controls',
   template: JST['app/scripts/templates/colorstops.ejs'],
   tagName: 'div',
   id: '',
