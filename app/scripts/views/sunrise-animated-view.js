@@ -43,6 +43,7 @@ Sunrise.Views = Sunrise.Views || {};
 
       this.collection.forEach(function (el, index) {
         var color = el.get('color');
+        // TODO: obey stated timeouts
         window.setTimeout(function() {
           $preview.animate( { backgroundColor: color }, stepDuration);
         }, index * stepDuration);

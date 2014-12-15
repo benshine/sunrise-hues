@@ -14,35 +14,41 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
   events: {
     'click #create': 'createColorstop',
-    'click .remove': 'removeColorstop'
+    'click .remove': 'removeColorstop',
+    'click #reset-to-defaults': 'resetToDefaults',
+    'click #clear': 'clear'
   },
 
   initialize: function () {
-    this.listenTo(this.collection, 'add', this.addColorstop);
+    this.listenTo(this.collection, 'add', this.addOne);
+    this.listenTo(this.collection, 'reset', this.addAll);
+    this.listenTo(this.collection, 'change', this.renderPreview);
   },
 
   render: function () {
     this.$el.html(this.template(this.collection.toJSON()));
     this.renderPreview();
+    this.$items = this.$('.items');
   },
 
-  addColorstop: function (item) {
+  addOne: function (item) {
+    console.log('adding item with color', item.get('color'));
     var view = new Sunrise.Views.Colorstop({ model: item });
     this.$('ul').append(view.render().el);
     this.renderPreview();
   },
 
+  addAll: function () {
+    this.$items.empty();
+    this.collection.each(this.addOne, this);
+    this.renderPreview();
+  },
+
   createColorstop: function (event) {
     event.preventDefault();
-
     var color = this.$('#color').val().trim();
-    var name = this.$('#name').val().trim();
-    var time = this.$('#time').val().trim();
-
     var newModel = new Sunrise.Models.Colorstop({
-      name: name,
-      color: color,
-      time: time
+      color: color
     });
     newModel.set('id', newModel.cid); // Standin for a real id.
     this.collection.create(newModel);
@@ -67,6 +73,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
       console.log("noting to preview :(");
       return;
     }
+
+    // TODO: obey stated timestops
     var fraction = 1 / this.collection.length;
 
     this.collection.forEach(function (el, index, list) {
@@ -76,8 +84,15 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
     context.fillStyle = gradient;
     context.fillRect(0, 0, 600, 300);
-  }
+  },
 
+  resetToDefaults: function () {
+    this.collection.resetToDefaults();
+  },
+
+  clear: function () {
+    this.collection.reset();
+  }
 });
 
 

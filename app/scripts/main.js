@@ -11,12 +11,14 @@ window.Sunrise = {
     console.log('Hello from Backbone!');
 
     var collection = new this.Collections.Colorstops();
-    window.collection = collection;
+
+    window.collection = collection; // for debugging only
 
     var collectionView = new this.Views.Colorstops(
       { collection: collection }
     );
     collectionView.render();
+    collection.resetToDefaults();
 
     var animatedView = new this.Views.SunriseAnimatedView(
       {

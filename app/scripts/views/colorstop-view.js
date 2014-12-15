@@ -12,7 +12,8 @@ Sunrise.Views = Sunrise.Views || {};
     className: '',
 
     events: {
-      'click .lights': 'onLightsClick'
+      'click .lights': 'onLightsClick',
+      'change input[type=color]': 'onColorInputChange'
     },
 
     initialize: function () {
@@ -26,6 +27,10 @@ Sunrise.Views = Sunrise.Views || {};
 
     onLightsClick: function () {
       HueService.allOn(this.model.get('color'));
+    },
+
+    onColorInputChange: function (event) {
+      this.model.set('color', event.target.value);
     }
   });
 })();
