@@ -8,12 +8,9 @@ window.Sunrise = {
   Routers: {},
   init: function () {
     'use strict';
-    console.log('Hello from Backbone!');
 
     var collection = new this.Collections.Colorstops();
-
     window.collection = collection; // for debugging only
-
     var collectionView = new this.Views.Colorstops(
       { collection: collection }
     );

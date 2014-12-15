@@ -14,8 +14,7 @@ var HueService = {
     if (color) {
       Object.assign(data, this.colorToHueHsv(color));
 
-    };
-    console.log(data);
+    }
     this.put(this.buildUrl('lights/' + light + '/state'), JSON.stringify(data));
   },
 

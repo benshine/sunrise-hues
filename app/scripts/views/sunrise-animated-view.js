@@ -24,14 +24,12 @@ Sunrise.Views = Sunrise.Views || {};
       this.$preview = this.$('.modal-preview');
       this.$backdrop = this.$('.modal-backdrop');
       this.$controls = this.$('.controls');
-      console.log("got controls: ", this.$controls);
     },
 
     animatePreview: function () {
 
       var duration = Sunrise.Views.SunriseAnimatedView.PREVIEW_DURATION; // milliseconds
       if (this.collection.length === 0) {
-        console.log("nothing to animate");
         return;
       }
 
