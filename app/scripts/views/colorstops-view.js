@@ -32,7 +32,6 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
   },
 
   addOne: function (item) {
-    console.log('adding item with color', item.get('color'));
     var view = new Sunrise.Views.Colorstop({ model: item });
     this.$('ul').append(view.render().el);
     this.renderPreview();
@@ -67,12 +66,13 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
     var canvas = document.getElementById('sunrise');
     var context = canvas.getContext('2d');
     context.clearRect(0, 0, canvas.width, canvas.height);
-    var totalHeight = 300;
-    var gradient = context.createLinearGradient(0, 0, 0, totalHeight);
-    if (this.collection.length === 0) {
-      console.log("noting to preview :(");
+    var collectionLength = this.collection.length;
+    if (collectionLength === 0) {
       return;
     }
+
+    var totalHeight = collectionLength * Sunrise.Views.Colorstops.STRIPE_HEIGHT;
+    var gradient = context.createLinearGradient(0, 0, 0, totalHeight);
 
     // TODO: obey stated timestops
     var fraction = 1 / this.collection.length;
@@ -83,7 +83,7 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
     });
 
     context.fillStyle = gradient;
-    context.fillRect(0, 0, 600, 300);
+    context.fillRect(0, 0, 1000, totalHeight);
   },
 
   resetToDefaults: function () {
@@ -93,6 +93,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
   clear: function () {
     this.collection.reset();
   }
+}, {
+  STRIPE_HEIGHT: 80 // pixels
 });
 
 
