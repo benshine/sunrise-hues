@@ -11,7 +11,6 @@ Sunrise.Views = Sunrise.Views || {};
     el: '#animated-preview',
     className: '',
     events: {
-      'click .animate-btn': 'animatePreview',
       'click .replay': 'animatePreview',
       'click .dismiss': 'dismissPreview'
     },

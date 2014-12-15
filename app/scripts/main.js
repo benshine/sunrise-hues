@@ -23,6 +23,9 @@ window.Sunrise = {
       }
     );
 
+    var controlsView = new this.Views.Controls();
+    controlsView.render();
+
     animatedView.render();
   }
 };

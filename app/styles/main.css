@@ -17,10 +17,6 @@ body {
   width:  50;
 }
 
-.animate-btn {
-  display: block;
-}
-
 .modal-backdrop {
   position: absolute;
   width: 100%;
