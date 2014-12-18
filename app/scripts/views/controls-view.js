@@ -5,29 +5,35 @@ Sunrise.Views = Sunrise.Views || {};
 (function () {
   'use strict';
 
-  Sunrise.Views.Controls = Backbone.View.extend({
-    template: JST['app/scripts/templates/controls.ejs'],
-    el: "#main-controls",
-    events: {
-      'click .animate-btn': 'animatePreview',
-      'click #reset-to-defaults': 'resetToDefaults',
-      'click #clear': 'clear'
-    },
+  if (typeof(Sunrise.Views.Controls = Backbone.View.extend({
+      template: JST['app/scripts/templates/controls.ejs'],
+      el: "#main-controls",
+      events: {
+        'click .animate-btn': 'animatePreview',
+        'click #reset-to-defaults': 'resetToDefaults',
+        'click #clear': 'clear'
+      },
 
-    render: function () {
-      this.$el.html(this.template());
-    },
+      initialize: function (options) {
+        this.animatedView = options.animatedView;
+      },
 
-    animatePreview: function () {
-      // TODO: delegate to sunrise animated view
-    },
+      render: function () {
+        this.$el.html(this.template());
+      },
 
-    resetToDefaults: function () {
-      // TODO: delegate to colorstop-collection
-    },
+      animatePreview: function () {
+        this.animatedView.animatePreview();
+      },
 
-    clear: function () {
-      // TODO: delegate to colorstop-collection
-    }
-  });
+      resetToDefaults: function () {
+        this.collection.resetToDefaults();
+      },
+
+      clear: function () {
+        this.collection.reset();
+      }
+    })) !== "undefined") {
+
+  }
 })();

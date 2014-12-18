@@ -15,7 +15,7 @@ Sunrise.Collections = Sunrise.Collections || {};
     DEFAULT_SUNRISE:
       [
         { color: "#676de8", time: 10, id: 2},
-        { color: "lightpink", time: 20, id: 3},
+        { color: "#ffb6c1", time: 20, id: 3},
         { color: "#ffffff", time: 40, id: 5}
       ]
     }

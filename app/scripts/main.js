@@ -23,7 +23,10 @@ window.Sunrise = {
       }
     );
 
-    var controlsView = new this.Views.Controls();
+    var controlsView = new this.Views.Controls({
+      collection: collection,
+      animatedView: animatedView
+    });
     controlsView.render();
 
     animatedView.render();
