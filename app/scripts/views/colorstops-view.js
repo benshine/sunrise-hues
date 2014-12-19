@@ -82,19 +82,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
     context.fillStyle = gradient;
     context.fillRect(0, 0, 1000, totalHeight);
-  },
-
-  resetToDefaults: function () {
-    this.collection.resetToDefaults();
-  },
-
-  clear: function () {
-    this.collection.reset();
   }
 }, {
   STRIPE_HEIGHT: 80 // pixels
 });
-
-
-
 })();
