@@ -39,3 +39,14 @@ body {
   top: 10px;
   right: 10px;
 }
+
+#sunrise {
+  width: 100%;
+  height: 500px;
+}
+
+#main-controls {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
