@@ -4,6 +4,7 @@ body {
 
 .colorstop {
   height: 80px;
+  padding: 5px;
 }
 
 .colorstop .indicator {
