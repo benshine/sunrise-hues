@@ -6,6 +6,7 @@ Sunrise.Collections = Sunrise.Collections || {};
   'use strict';
 
   Sunrise.Collections.Colorstops = Backbone.Collection.extend({
+    localStorage: new Backbone.LocalStorage('sunrise-hues'),
     model: Sunrise.Models.Colorstop,
 
     resetToDefaults: function () {
