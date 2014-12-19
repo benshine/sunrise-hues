@@ -70,9 +70,9 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
     }
 
     var totalHeight = collectionLength * Sunrise.Views.Colorstops.STRIPE_HEIGHT;
+    $(canvas).height(totalHeight);
     var gradient = context.createLinearGradient(0, 0, 0, totalHeight);
 
-    // TODO: obey stated timestops
     var fraction = 1 / this.collection.length;
 
     this.collection.forEach(function (el, index, list) {
