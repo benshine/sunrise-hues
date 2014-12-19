@@ -3,26 +3,11 @@
 Sunrise.Models = Sunrise.Models || {};
 
 (function () {
-    'use strict';
+  'use strict';
 
-    Sunrise.Models.Colorstop = Backbone.Model.extend({
-
-        url: '',
-
-        initialize: function() {
-        },
-
-        defaults: {
-            color: '#F88',
-            time: 0
-        },
-
-        validate: function(attrs, options) {
-        },
-
-        parse: function(response, options)  {
-            return response;
-        }
-    });
-
+  Sunrise.Models.Colorstop = Backbone.Model.extend({
+    defaults: {
+      color: '#F88'
+    }
+  });
 })();
