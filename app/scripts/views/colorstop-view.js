@@ -22,6 +22,7 @@ Sunrise.Views = Sunrise.Views || {};
 
     render: function () {
       this.$el.html(this.template(this.model.toJSON()));
+      this.$colorpicker = Colorpicker.buildColorpicker(this.$('.colorpicker'));
       return this;
     },
 
@@ -29,8 +30,9 @@ Sunrise.Views = Sunrise.Views || {};
       HueService.allOn(this.model.get('color'));
     },
 
-    onColorInputChange: function (event) {
-      this.model.set('color', event.target.value);
+    onColorInputChange: function () {
+      var color = this.$colorpicker.spectrum("get").toHexString();
+      this.model.set('color', color);
     }
   });
 })();

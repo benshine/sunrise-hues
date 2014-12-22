@@ -27,8 +27,7 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
     this.$el.html(this.template(this.collection.toJSON()));
     this.renderPreview();
     this.$items = this.$('.items');
-    this.$colorpicker = this.$('.new-color').spectrum({
-    });
+    this.$colorpicker = Colorpicker.buildColorpicker(this.$('.new-color'));
   },
 
   addOne: function (item) {
