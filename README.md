@@ -30,4 +30,4 @@ Next steps:
 
 3. Allow configuration of the hue connection
 
-![Screenshot](http://openben.squarespace.com/storage/projects/sunrise-hues-screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/benshine/sunrise-hues/readme-with-image/site/images/sunrise-hues-screenshot.png)
