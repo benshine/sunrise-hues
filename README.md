@@ -29,3 +29,5 @@ Next steps:
 2. Install the schedule in the bulbs
 
 3. Allow configuration of the hue connection
+
+![Screenshot](http://openben.squarespace.com/storage/projects/sunrise-hues-screenshot.png)
