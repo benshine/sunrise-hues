@@ -41,11 +41,6 @@ body {
   right: 10px;
 }
 
-#sunrise {
-  width: 8000px;
-  height: 500px;
-}
-
 #main-controls {
   position: fixed;
   right: 20px;
