@@ -27,6 +27,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
     this.$el.html(this.template(this.collection.toJSON()));
     this.renderPreview();
     this.$items = this.$('.items');
+    this.$colorpicker = this.$('#color').spectrum({
+    });
   },
 
   addOne: function (item) {
@@ -43,9 +45,8 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
   createColorstop: function (event) {
     event.preventDefault();
-    var color = this.$('#color').val().trim();
     var newModel = new Sunrise.Models.Colorstop({
-      color: color
+      color: this.$colorpicker.spectrum('get').toHexString()
     });
     newModel.set('id', newModel.cid); // Standin for a real id.
     this.collection.create(newModel);
