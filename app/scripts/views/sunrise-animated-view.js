@@ -46,7 +46,6 @@ Sunrise.Views = Sunrise.Views || {};
         var color = el.get('color');
         var animationDescriptor = this.animationDescriptorForStep(
           previousAnimationDescriptor, index, Sunrise.Views.SunriseAnimatedView.DWELL_DURATION);
-        console.log("Animation descriptor for " + index + ": ",  animationDescriptor);
         window.setTimeout(function() {
           $preview.animate( { backgroundColor: color }, animationDescriptor.transitionDuration);
         }, animationDescriptor.startTime);
@@ -75,7 +74,7 @@ Sunrise.Views = Sunrise.Views || {};
     }
 
   }, {
-    DWELL_DURATION: 1000
+    DWELL_DURATION: 500
   });
 
 })();
