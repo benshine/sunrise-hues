@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sunrise-hues by benshine</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Sunrise-hues</h1>
+        <p>Build sunrises for Philips Hue bulbs</p>
+
+        <p class="view"><a href="https://github.com/benshine/sunrise-hues">View the Project on GitHub <small>benshine/sunrise-hues</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/benshine/sunrise-hues/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/benshine/sunrise-hues/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/benshine/sunrise-hues">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="sunrise-hues-build-sunrises-for-philips-hue-bulbs" class="anchor" href="#sunrise-hues-build-sunrises-for-philips-hue-bulbs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sunrise Hues: Build sunrises for Philips Hue bulbs</h1>
+
+<p><a href="http://www.meethue.com">Philips Hue</a> lights are a great technology: wireless 
+programmable LED light bulbs. 
+I use them to simulate sunrise at an earlier time than the sun actually rises. 
+This gives me a stimulus to awaken that is gentler than a radio or buzzer.</p>
+
+<p>There are many applications for controlling Hue bulbs, but none of them 
+do exactly what I want, so I decided to build my own app. Philips provides
+a device that joins your home's wifi and which contains a little tiny 
+web server. I can control my lights via the <a href="http://www.developers.meethue.com/">REST api</a>. </p>
+
+<p>This app is specialized to just build sunrises and install them as a schedule
+in my bulbs. The UI lets you design a gradient, try each color out on the lights,
+and view an accelerated in-browser animated preview.</p>
+
+<p>Right now the app has hardcoded Philips configuration:</p>
+
+<ul>
+<li>assumes the bridge is at 10.0.0.3</li>
+<li>assumes you are authenticated as user <code>newdeveloper</code>
+</li>
+<li>assumes that you have 3 lights
+If you need to change these settings, edit <code>app/scripts/services/hue-service.js</code>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/benshine">benshine</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
