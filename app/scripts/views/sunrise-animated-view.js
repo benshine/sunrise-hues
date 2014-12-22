@@ -27,28 +27,47 @@ Sunrise.Views = Sunrise.Views || {};
 
     animatePreview: function () {
 
-      var duration = Sunrise.Views.SunriseAnimatedView.PREVIEW_DURATION; // milliseconds
       if (this.collection.length === 0) {
         return;
       }
 
       this.$backdrop.show();
-      var stepDuration = duration / this.collection.length;
       var $preview = this.$preview;
       $preview.css('background-color', this.collection.at(0).get('color'));
       $preview.show();
 
+      var previousAnimationDescriptor = {
+        startTime: 0,
+        transitionDuration: 0,
+        doneTime: Sunrise.Views.SunriseAnimatedView.DWELL_DURATION
+      };
+
       this.collection.forEach(function (el, index) {
         var color = el.get('color');
-        // TODO: obey stated timeouts
+        var animationDescriptor = this.animationDescriptorForStep(
+          previousAnimationDescriptor, index, Sunrise.Views.SunriseAnimatedView.DWELL_DURATION);
+        console.log("Animation descriptor for " + index + ": ",  animationDescriptor);
         window.setTimeout(function() {
-          $preview.animate( { backgroundColor: color }, stepDuration);
-        }, index * stepDuration);
-      });
+          $preview.animate( { backgroundColor: color }, animationDescriptor.transitionDuration);
+        }, animationDescriptor.startTime);
+
+        previousAnimationDescriptor = animationDescriptor;
+      }, this);
 
       window.setTimeout(function () {
         this.$controls.show();
-      }.bind(this), duration + 500);
+      }.bind(this), previousAnimationDescriptor.doneTime + 500);
+    },
+
+    animationDescriptorForStep: function (previous, index, dwell) {
+      var startTime = previous.doneTime;
+
+      var transitionDuration = 500;
+      return {
+        startTime: startTime,
+        transitionDuration: transitionDuration,
+        doneTime: startTime + dwell + transitionDuration
+      }
     },
 
     dismissPreview: function () {
@@ -56,7 +75,7 @@ Sunrise.Views = Sunrise.Views || {};
     }
 
   }, {
-    PREVIEW_DURATION: 1000
+    DWELL_DURATION: 1000
   });
 
 })();
