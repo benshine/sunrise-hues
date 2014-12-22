@@ -24,10 +24,12 @@ If you need to change these settings, edit `app/scripts/services/hue-service.js`
 
 Next steps:
 
-1. Run an accelerated up preview of the sunrise on the actual bulbs
+1. Allowo configuring what time to start the sunrise
 
 2. Install the schedule in the bulbs
 
 3. Allow configuration of the hue connection
+
+4. Allow configuration of the times 
 
 ![Screenshot](https://raw.githubusercontent.com/benshine/sunrise-hues/readme-with-image/site/images/sunrise-hues-screenshot.png)
