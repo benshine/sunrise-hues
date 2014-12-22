@@ -27,7 +27,16 @@
   <div class="row">
     <section class="colorstop-controls col-md-6"></section>
     <section class="canvas-container col-md-6">
-      <canvas id="sunrise"></canvas>
+      <!--
+      Canvas doesn't behave well when sized via CSS, so we give
+      it a ridiculously large width here, trusting that most of it
+      will be off-screen, since it within a container that is the
+      last six columns in a bootstrap row.
+      The height of the canvas is managed at runtime by
+      ColorstopsView, which makes it just tall enough to match
+      the current number of colorstops.
+      -->
+      <canvas id="sunrise" width="8000px"></canvas>
     </section>
   </div>
 

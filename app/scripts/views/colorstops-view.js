@@ -81,9 +81,10 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
     });
 
     context.fillStyle = gradient;
-    context.fillRect(0, 0, 1000, totalHeight);
+    context.fillRect(0, 0, Sunrise.Views.Colorstops.CANVAS_WIDTH, totalHeight);
   }
 }, {
-  STRIPE_HEIGHT: 80 // pixels
+  STRIPE_HEIGHT: 80, // pixels
+  CANVAS_WIDTH: 8000 // pixels
 });
 })();
