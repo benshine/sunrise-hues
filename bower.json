@@ -12,7 +12,8 @@
     "es5-shim": "~4.0.5",
     "es6-shim": "~0.21.1",
     "jquery-color": "~2.1.2",
-    "spectrum": "~1.6.0"
+    "spectrum": "~1.6.0",
+    "requirejs": "~2.1.15"
   },
   "devDependencies": {},
   "resolutions": {
