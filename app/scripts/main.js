@@ -11,7 +11,6 @@ requirejs.config({
   }
 });
 
-
 requirejs([
     'jquery',
     'bower/underscore/underscore',
@@ -40,7 +39,6 @@ requirejs([
       animatedView: animatedView
     });
     controlsView.render();
-
     animatedView.render();
   }
 );
