@@ -1,4 +1,4 @@
-define(['backbone', 'jst'], function(Backbone, JST) {
+define(['backbone', 'jst', 'bower/jquery-color/jquery.color'], function(Backbone, JST, $) {
   var DWELL_DURATION = 500; // milliseconds
 
   return Backbone.View.extend({
@@ -41,7 +41,7 @@ define(['backbone', 'jst'], function(Backbone, JST) {
       this.collection.forEach(function (el, index) {
         var color = el.get('color');
         var animationDescriptor = this.animationDescriptorForStep(
-          previousAnimationDescriptor, index, Sunrise.Views.SunriseAnimatedView.DWELL_DURATION);
+          previousAnimationDescriptor, index, DWELL_DURATION);
         window.setTimeout(function() {
           $preview.animate( { backgroundColor: color }, animationDescriptor.transitionDuration);
         }, animationDescriptor.startTime);

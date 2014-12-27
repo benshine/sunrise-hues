@@ -8,6 +8,9 @@ requirejs.config({
     backbone: '../bower_components/backbone/backbone',
     backboneLocalStorage: '../bower_components/backbone.localStorage/backbone.localStorage',
     spectrum: '../bower_components/spectrum/spectrum'
+  },
+  shim : {
+    'bower/jquery-color/jquery.color': ['jquery']
   }
 });
 
