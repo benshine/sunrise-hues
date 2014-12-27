@@ -1,8 +1,6 @@
-/*global Sunrise, Backbone*/
+/*global define*/
 
-Sunrise.Models = Sunrise.Models || {};
-
-(function () {
+define(['backbone', 'sunrise'], function (Backbone, Sunrise) {
   'use strict';
 
   Sunrise.Models.Colorstop = Backbone.Model.extend({
@@ -10,4 +8,6 @@ Sunrise.Models = Sunrise.Models || {};
       color: '#F88'
     }
   });
-})();
+
+  return Sunrise.Models.Colorstop;
+});

@@ -3,7 +3,9 @@
 requirejs.config({
   paths: {
     bower: '../bower_components',
-    jquery: '../bower_components/jquery/dist/jquery'
+    jquery: '../bower_components/jquery/dist/jquery',
+    backbone: '../bower_components/backbone/backbone',
+    backboneLocalStorage: '../bower_components/backbone.localStorage/backbone.localStorage'
   }
 });
 
@@ -11,14 +13,23 @@ requirejs.config({
 requirejs([
     'jquery',
     'bower/underscore/underscore',
-    'bower/backbone/backbone'
+    'backbone',
+    'sunrise',
+    'models/colorstop-model',
+    'collections/colorstops-collection'
   ],
-  function   ($, Underscore, Backbone) {
+  function ($, Underscore, Backbone,
+            Sunrise, ColorstopModel, ColorstopCollection) {
     //jQuery, canvas and the app/sub module are all
     //loaded and can be used here now.
     console.log("Do we have _? ", _);
     console.log("Do we have backbone? ", Backbone.View);
-  });
+    console.log("Do we have Sunrise?", Sunrise);
+    console.log("Do we have the model?", ColorstopModel);
+
+    var collection = new ColorstopCollection();
+  }
+);
 
 /*
 
