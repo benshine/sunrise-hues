@@ -19,7 +19,7 @@ requirejs([
     'collections/colorstops-collection',
     'views/colorstops-view',
     'views/controls-view',
-    'views/sunrise-animated-view'
+    'views/animated-view'
   ],
   function ($, Underscore, Backbone,
             ColorstopModel, ColorstopCollection,
