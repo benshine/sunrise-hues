@@ -20,7 +20,7 @@ define([
 
       render: function () {
         this.$el.html(this.template(this.model.toJSON()));
-        this.$colorpicker = Colorpicker.buildColorpicker(this.$('.colorpicker'));
+        this.$colorpicker = Colorpicker(this.$('.colorpicker'));
         return this;
       },
 

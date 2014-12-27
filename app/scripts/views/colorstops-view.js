@@ -30,7 +30,7 @@ define(['backbone', 'jst',
         this.$el.html(this.template(this.collection.toJSON()));
         this.renderPreview();
         this.$items = this.$('.items');
-        this.$colorpicker = Colorpicker.buildColorpicker(this.$('.new-color'));
+        this.$colorpicker = Colorpicker(this.$('.new-color'));
       },
 
       addOne: function (item) {
