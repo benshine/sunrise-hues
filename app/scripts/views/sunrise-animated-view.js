@@ -1,7 +1,7 @@
-define(['sunrise', 'backbone', 'jst'], function(Sunrise, Backbone, JST) {
-  'use strict';
+define(['backbone', 'jst'], function(Backbone, JST) {
+  var DWELL_DURATION = 500; // milliseconds
 
-  Sunrise.Views.SunriseAnimatedView = Backbone.View.extend({
+  return Backbone.View.extend({
     template: JST['app/scripts/templates/sunrise-animated-view.ejs'],
     tagName: 'div',
     el: '#animated-preview',
@@ -35,7 +35,7 @@ define(['sunrise', 'backbone', 'jst'], function(Sunrise, Backbone, JST) {
       var previousAnimationDescriptor = {
         startTime: 0,
         transitionDuration: 0,
-        doneTime: Sunrise.Views.SunriseAnimatedView.DWELL_DURATION
+        doneTime: DWELL_DURATION
       };
 
       this.collection.forEach(function (el, index) {
@@ -68,11 +68,5 @@ define(['sunrise', 'backbone', 'jst'], function(Sunrise, Backbone, JST) {
     dismissPreview: function () {
       this.$backdrop.hide();
     }
-
-  }, {
-    DWELL_DURATION: 500
   });
-
-  return Sunrise.Views.SunriseAnimatedView;
-
 });

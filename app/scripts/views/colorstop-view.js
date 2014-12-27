@@ -1,11 +1,9 @@
-
-
 define([
-    'sunrise', 'backbone', 'jst', 'services/colorpicker',
+    'backbone', 'jst', 'services/colorpicker',
     'services/hue-service'
   ],
-  function (Sunrise, Backbone, JST, Colorpicker, HueService) {
-    Sunrise.Views.Colorstop = Backbone.View.extend({
+  function (Backbone, JST, Colorpicker, HueService) {
+    return Backbone.View.extend({
       template: JST['app/scripts/templates/colorstop.ejs'],
       tagName: 'div',
       id: '',
@@ -35,7 +33,5 @@ define([
         this.model.set('color', color);
       }
     });
-
-    return Sunrise.Views.Colorstop;
   }
 );

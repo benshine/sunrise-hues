@@ -1,7 +1,7 @@
-define(['sunrise', 'backbone', 'jst'], function (Sunrise, Backbone, JST) {
+define(['backbone', 'jst'], function (Backbone, JST) {
   'use strict';
 
-  Sunrise.Views.Controls = Backbone.View.extend({
+  return Backbone.View.extend({
     template: JST['app/scripts/templates/controls.ejs'],
     el: "#main-controls",
     events: {
@@ -30,6 +30,4 @@ define(['sunrise', 'backbone', 'jst'], function (Sunrise, Backbone, JST) {
       this.collection.reset();
     }
   });
-
-  return Sunrise.Views.Controls;
 });
