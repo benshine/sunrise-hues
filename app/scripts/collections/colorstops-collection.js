@@ -1,6 +1,3 @@
-/*global Sunrise, Backbone*/
-
-
 define(
   ['backbone',
     'backboneLocalStorage',

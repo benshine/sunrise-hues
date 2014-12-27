@@ -1,8 +1,5 @@
-/*global Sunrise, Backbone, JST*/
 
-Sunrise.Views = Sunrise.Views || {};
-
-(function () {
+define(['backbone', 'sunrise', 'jst'], function (Backbone, Sunrise, JST) {
 'use strict';
 
 Sunrise.Views.Colorstops = Backbone.View.extend({
@@ -87,4 +84,6 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
   STRIPE_HEIGHT: 80, // pixels
   CANVAS_WIDTH: 8000 // pixels
 });
-})();
+
+  return Sunrise.Views.Colorstops;
+});
