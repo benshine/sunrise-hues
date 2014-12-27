@@ -6,7 +6,8 @@ requirejs.config({
     jquery: '../bower_components/jquery/dist/jquery',
     jst: '../generated/scripts/templates',
     backbone: '../bower_components/backbone/backbone',
-    backboneLocalStorage: '../bower_components/backbone.localStorage/backbone.localStorage'
+    backboneLocalStorage: '../bower_components/backbone.localStorage/backbone.localStorage',
+    spectrum: '../bower_components/spectrum/spectrum'
   }
 });
 

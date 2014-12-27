@@ -1,5 +1,8 @@
 
-define(['backbone', 'sunrise', 'jst'], function (Backbone, Sunrise, JST) {
+define(['backbone', 'sunrise', 'jst',
+    'services/colorpicker', 'views/colorstop-view'],
+  function (Backbone, Sunrise, JST, Colorpicker, ColorstopView)
+{
 'use strict';
 
 Sunrise.Views.Colorstops = Backbone.View.extend({
@@ -28,7 +31,7 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
   },
 
   addOne: function (item) {
-    var view = new Sunrise.Views.Colorstop({ model: item });
+    var view = new ColorstopView({ model: item });
     this.$('ul').append(view.render().el);
     this.renderPreview();
   },

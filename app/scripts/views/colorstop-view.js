@@ -1,10 +1,7 @@
-/*global Sunrise, Backbone, JST*/
 
-Sunrise.Views = Sunrise.Views || {};
 
-(function () {
-  'use strict';
-
+define(['sunrise', 'backbone', 'jst', 'services/colorpicker'],
+  function (Sunrise, Backbone, JST, Colorpicker) {
   Sunrise.Views.Colorstop = Backbone.View.extend({
     template: JST['app/scripts/templates/colorstop.ejs'],
     tagName: 'div',
@@ -35,4 +32,6 @@ Sunrise.Views = Sunrise.Views || {};
       this.model.set('color', color);
     }
   });
-})();
+
+    return Sunrise.Views.Colorstop;
+});
