@@ -1,7 +1,7 @@
 
 define(['backbone', 'sunrise', 'jst',
-    'services/colorpicker', 'views/colorstop-view'],
-  function (Backbone, Sunrise, JST, Colorpicker, ColorstopView)
+    'services/colorpicker', 'views/colorstop-view', 'models/colorstop-model'],
+  function (Backbone, Sunrise, JST, Colorpicker, ColorstopView, ColorstopModel)
 {
 'use strict';
 
@@ -44,7 +44,7 @@ Sunrise.Views.Colorstops = Backbone.View.extend({
 
   createColorstop: function (event) {
     event.preventDefault();
-    var newModel = new Sunrise.Models.Colorstop({
+    var newModel = new ColorstopModel({
       color: this.$colorpicker.spectrum('get').toHexString()
     });
     newModel.set('id', newModel.cid); // Standin for a real id.
