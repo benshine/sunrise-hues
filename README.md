@@ -10,7 +10,7 @@ I use them to simulate sunrise at an earlier time than the sun actually rises.
 This gives me a stimulus to awaken that is gentler than a radio or buzzer,
 but still seems to get me out the door on time. 
 
-There are many apsps that control Hue bulbs, but none of them 
+There are many apps that control Hue bulbs, but none of them 
 do exactly what I want, so I decided to build my own. Philips provides
 a device that joins your home's wifi and which contains a little tiny 
 web server. I can control my lights via the [REST api](http://www.developers.meethue.com/). 
