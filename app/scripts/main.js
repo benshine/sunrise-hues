@@ -19,24 +19,30 @@ requirejs([
     'sunrise',
     'models/colorstop-model',
     'collections/colorstops-collection',
-    'views/colorstops-view'
+    'views/colorstops-view',
+    'views/controls-view',
+    'views/sunrise-animated-view'
   ],
   function ($, Underscore, Backbone,
-            Sunrise, ColorstopModel, ColorstopCollection, ColorstopsView) {
-
-    console.log("Do we have _? ", _);
-    console.log("Do we have backbone? ", Backbone.View);
-    console.log("Do we have Sunrise?", Sunrise);
-    console.log("Do we have the model?", ColorstopModel);
+            Sunrise, ColorstopModel, ColorstopCollection,
+            ColorstopsView, ControlsView, AnimatedView) {
 
     var collection = new ColorstopCollection();
-
     var collectionView = new ColorstopsView(
       { collection: collection }
     );
     collectionView.render();
     collection.resetToDefaults();
 
+    var animatedView = new AnimatedView({ collection: collection});
+
+    var controlsView = new ControlsView({
+      collection: collection,
+      animatedView: animatedView
+    });
+    controlsView.render();
+
+    animatedView.render();
   }
 );
 

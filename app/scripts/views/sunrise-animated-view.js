@@ -1,8 +1,4 @@
-/*global Sunrise, Backbone, JST*/
-
-Sunrise.Views = Sunrise.Views || {};
-
-(function () {
+define(['sunrise', 'backbone', 'jst'], function(Sunrise, Backbone, JST) {
   'use strict';
 
   Sunrise.Views.SunriseAnimatedView = Backbone.View.extend({
@@ -77,4 +73,6 @@ Sunrise.Views = Sunrise.Views || {};
     DWELL_DURATION: 500
   });
 
-})();
+  return Sunrise.Views.SunriseAnimatedView;
+
+});
