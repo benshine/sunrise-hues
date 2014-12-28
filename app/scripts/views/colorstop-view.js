@@ -2,7 +2,9 @@ define([
     'backbone', 'jst', 'services/colorpicker',
     'services/hue-service'
   ],
-  function (Backbone, JST, Colorpicker, HueService) {
+  function (Backbone, JST, buildColorpicker, HueService) {
+    'use strict';
+
     return Backbone.View.extend({
       template: JST['app/scripts/templates/colorstop.ejs'],
       tagName: 'div',
@@ -20,7 +22,7 @@ define([
 
       render: function () {
         this.$el.html(this.template(this.model.toJSON()));
-        this.$colorpicker = Colorpicker(this.$('.colorpicker'));
+        this.$colorpicker = buildColorpicker(this.$('.colorpicker'));
         return this;
       },
 
@@ -29,7 +31,7 @@ define([
       },
 
       onColorInputChange: function () {
-        var color = this.$colorpicker.spectrum("get").toHexString();
+        var color = this.$colorpicker.spectrum('get').toHexString();
         this.model.set('color', color);
       }
     });

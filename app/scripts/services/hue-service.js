@@ -1,7 +1,7 @@
 define(['jquery', 'bower/es6-shim/es6-shim'], function ($) {
   'use strict';
 
-  return function () {
+  return (function () {
     var username = 'newdeveloper';
     var bridgeAddress = 'http://10.0.1.3';
     var lights = [1, 2, 3];
@@ -46,5 +46,5 @@ define(['jquery', 'bower/es6-shim/es6-shim'], function ($) {
         };
       }
     };
-  }();
+  }());
 });

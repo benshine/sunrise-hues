@@ -4,7 +4,9 @@ define(['backbone', 'jst',
     'views/colorstop-view',
     'models/colorstop-model'
   ],
-  function (Backbone, JST, Colorpicker, ColorstopView, ColorstopModel) {
+  function (Backbone, JST, buildColorpicker, ColorstopView, ColorstopModel) {
+    'use strict';
+
     var STRIPE_HEIGHT = 80; // pixels
     var CANVAS_WIDTH = 8000; // pixels
 
@@ -30,7 +32,7 @@ define(['backbone', 'jst',
         this.$el.html(this.template(this.collection.toJSON()));
         this.renderPreview();
         this.$items = this.$('.items');
-        this.$colorpicker = Colorpicker(this.$('.new-color'));
+        this.$colorpicker = buildColorpicker(this.$('.new-color'));
       },
 
       addOne: function (item) {
@@ -78,8 +80,7 @@ define(['backbone', 'jst',
 
         var fraction = 1 / this.collection.length;
 
-        this.collection.forEach(function (el, index, list) {
-          var color = el.get('color');
+        this.collection.forEach(function (el, index) {
           gradient.addColorStop(index * fraction, el.get('color'));
         });
 

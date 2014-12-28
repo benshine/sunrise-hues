@@ -3,7 +3,7 @@ define(['backbone', 'jst'], function (Backbone, JST) {
 
   return Backbone.View.extend({
     template: JST['app/scripts/templates/controls.ejs'],
-    el: "#main-controls",
+    el: '#main-controls',
     events: {
       'click .animate-btn': 'animatePreview',
       'click #reset-to-defaults': 'resetToDefaults',
