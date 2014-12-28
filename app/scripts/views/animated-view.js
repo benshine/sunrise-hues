@@ -1,4 +1,5 @@
-define(['backbone', 'jst', 'bower/jquery-color/jquery.color'], function(Backbone, JST, $) {
+define(['backbone', 'jst', 'bower/jquery-color/jquery.color'], function(Backbone, JST) {
+  'use strict';
   var DWELL_DURATION = 500; // milliseconds
 
   return Backbone.View.extend({
@@ -62,7 +63,7 @@ define(['backbone', 'jst', 'bower/jquery-color/jquery.color'], function(Backbone
         startTime: startTime,
         transitionDuration: transitionDuration,
         doneTime: startTime + dwell + transitionDuration
-      }
+      };
     },
 
     dismissPreview: function () {

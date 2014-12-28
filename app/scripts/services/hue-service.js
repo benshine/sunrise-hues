@@ -1,4 +1,5 @@
 define(['jquery', 'bower/es6-shim/es6-shim'], function ($) {
+  'use strict';
 
   return function () {
     var username = 'newdeveloper';
@@ -13,7 +14,7 @@ define(['jquery', 'bower/es6-shim/es6-shim'], function ($) {
       },
 
       toggleLight: function (light, on, color) {
-        var data = {"on": on};
+        var data = {'on': on};
         if (color) {
           Object.assign(data, this.colorToHueHsv(color));
         }
@@ -39,11 +40,11 @@ define(['jquery', 'bower/es6-shim/es6-shim'], function ($) {
         var jqc = $.Color(color);
 
         return {
-          "hue": Math.floor(65535 * jqc.hue() / 360),
-          "sat": Math.floor(jqc.saturation() * 255),
-          "bri": Math.floor(jqc.lightness() * 255)
-        }
+          'hue': Math.floor(65535 * jqc.hue() / 360),
+          'sat': Math.floor(jqc.saturation() * 255),
+          'bri': Math.floor(jqc.lightness() * 255)
+        };
       }
-    }
+    };
   }();
 });

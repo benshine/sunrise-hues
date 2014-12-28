@@ -1,6 +1,6 @@
 define(['jquery', 'spectrum'], function () {
-
- return function ($el) {
+  'use strict';
+  return function ($el) {
     return $el.spectrum({
       showPalette: true,
       showSelectionPalette: true,
