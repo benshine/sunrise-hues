@@ -20,11 +20,8 @@
     "smarttabs": true,
     "jquery": true,
     "globals": {
-        "Sunrise": true,
-        "sunrise": true,
-        "_": false,
-        "Backbone": false,
-        "JST": false,
+        "define": false,
+        "requirejs": false,
         "beforeEach": false,
         "describe": false,
         "it": false,
