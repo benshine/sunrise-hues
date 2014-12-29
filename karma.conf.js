@@ -9,22 +9,22 @@ module.exports = function(config) {
 
 
     // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine', 'requirejs'],
 
 
     // list of files / patterns to load in the browser
     files: [
       'test-main.js',
-      {pattern: 'app/scripts/**/*.js', included: false},
+      {pattern: 'app/**/*.js', included: false},
       {pattern: 'test/**/*.js', included: false}
     ],
 
 
-    // list of files to exclude
+    // list of files to exclude -- note that we exclude the main file, since we
+    // don't want to actually run the entire app in our tests.
     exclude: [
-      'bower_components/**',
-      'test/bower_components/**'
+      'app/scripts/main.js',
+      'app/bower_components/**/test/**'
     ],
 
 

@@ -19,6 +19,23 @@ require.config({
   // dynamically load all test files
   deps: allTestFiles,
 
-  // we have to kickoff jasmine, as it is asynchronous
-  callback: window.__karma__.start
+  // we have to kick off jasmine, because it is asynchronous
+  callback: window.__karma__.start,
+
+  paths: {
+    bower: 'app/bower_components',
+    jquery: 'app/bower_components/jquery/dist/jquery',
+    jst: 'app/generated/scripts/templates',
+    backbone: 'app/bower_components/backbone/backbone',
+    backboneLocalStorage: 'app/bower_components/backbone.localStorage/backbone.localStorage',
+    spectrum: 'app/bower_components/spectrum/spectrum',
+    services: 'app/scripts/services',
+    models: 'app/scripts/models',
+    views: 'app/scripts/views',
+    collections: 'app/scripts/collections',
+    underscore: 'app/bower_components/underscore/underscore'
+  },
+  shim : {
+    'bower/jquery-color/jquery.color': ['jquery']
+  }
 });
