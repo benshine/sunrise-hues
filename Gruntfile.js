@@ -125,7 +125,12 @@ module.exports = function (grunt) {
         karma: {
           unit: {
             configFile: 'karma.conf.js'
+          },
+          once: {
+            configFile: 'karma.conf.js',
+            singleRun: true
           }
+
         },
         useminPrepare: {
             html: '<%= yeoman.app %>/index.html',
@@ -253,24 +258,12 @@ module.exports = function (grunt) {
         ]);
     });
 
-    grunt.registerTask('test', function (isConnected) {
-        isConnected = Boolean(isConnected);
-        var testTasks = [
-                'clean:server',
-                'createDefaultTemplate',
-                'jst',
-                'connect:test',
-                'mocha',
-            ];
-
-        if(!isConnected) {
-            return grunt.task.run(testTasks);
-        } else {
-            // already connected so not going to connect again, remove the connect:test task
-            testTasks.splice(testTasks.indexOf('connect:test'), 1);
-            return grunt.task.run(testTasks);
-        }
-    });
+    grunt.registerTask('test', [
+      'clean:server',
+      'createDefaultTemplate',
+      'jst',
+      'karma:once'
+    ]);
 
     grunt.registerTask('build', [
         'clean:dist',
