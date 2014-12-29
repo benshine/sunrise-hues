@@ -1,10 +1,15 @@
-/*global beforeEach, describe, it, assert, expect  */
-'use strict';
+define(['models/colorstop-model'], function (ColorstopModel) {
+  describe('ColorstopModel', function () {
 
-describe('Colorstop Model', function () {
-
-    beforeEach(function () {
-        this.ColorstopModel = new Sunrise.Models.Colorstop();
+    it('has a default color', function () {
+      var model = new ColorstopModel();
+      expect(model.get('color')).toBeDefined();
     });
 
+    it('retains the color passed in', function () {
+      var reddish = '#C33';
+      var model = new ColorstopModel( { color: reddish });
+      expect(model.get('color')).toBe(reddish);
+    });
+  });
 });

@@ -29,6 +29,10 @@ Right now the app has hardcoded Philips configuration:
 * assumes that you have 3 lights
 If you need to change these settings, edit `app/scripts/services/hue-service.js`
 
+
+To run tests, `grunt test`... but note that there are no meaningful tests yet; 
+there are just enough tests to demonstrate that karma and requirejs are working.  
+
 ## Next steps:
 
 1. Allow configuring what time to start the sunrise
